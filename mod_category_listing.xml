@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>mod_category_listing</name>
+	<author>Joomla! Project</author>
+	<creationDate>July 2006</creationDate>
+	<copyright>Copyright (C) 2005 - 2016 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>admin@joomla.org</authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>3.0.0</version>
+	<description>MOD_CATEGORY_LISTING_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_category_listing">mod_category_listing.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_category_listing.ini</language>
+		<language tag="en-GB">en-GB.mod_category_listing.sys.ini</language>
+	</languages>
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_BANNERS" />
+	<config>
+		<fields name="params">
+			<fieldset
+				name="basic"
+				addfieldpath="/administrator/components/com_banners/models/fields"
+				>
+				<field
+					default="0"
+					name="show_hits"
+					type="list"
+					label="Show hits"
+					description="MOD_CATEGORY_LISTING_FIELD_SHOWHITS_DESC"
+					>
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+				</field>
+
+				<field
+					default="0"
+					name="show_title"
+					type="list"
+					label="Show Title"
+					description="MOD_CATEGORY_LISTING_FIELD_SHOWHITS_DESC"
+					>
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+				</field>
+				
+				<field
+					default="0"
+					name="show_count"
+					type="list"
+					label="Show Count"
+					description="MOD_CATEGORY_LISTING_FIELD_SHOWHITS_DESC"
+					>
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+				</field>
+				
+				<field
+					default="0"
+					name="show_viewmore"
+					type="list"
+					label="Show View More"
+					description="MOD_CATEGORY_LISTING_FIELD_SHOWHITS_DESC"
+					>
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+				</field>
+				
+				
+
+				<field
+					name="numbe_of_project"
+					type="text"
+					label="Number of Project"
+					description="MOD_CATEGORY_LISTING_FIELD_NUMBER_OF__PROJECT_DESC"
+				>
+				</field>
+				<field name="tags" type="sql"  label="Tags" query="SELECT id, title FROM #__tags WHERE parent_id != 0" key_field="id" value_field="title" >
+					<option value="">Select</option>
+				</field>
+			
+				<field name="category_list" type="sql"  label="Project Category List" query="SELECT id, title FROM #__categories" key_field="id" value_field="title" >
+				<option value="">Select</option>
+				</field>
+		
+			</fieldset>
+			
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+				/>
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+					rows="3"
+				/>
+
+				<field
+					name="cache"
+					type="list"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC"
+					default="1"
+					>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+					default="900"
+				/>
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static"
+					>
+					<option value="static"></option>
+				</field>
+			</fieldset>
+			
+		</fields>
+	</config>
+</extension>
